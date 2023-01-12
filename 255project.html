@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./jquery-3.6.3.min.js"></script>
+    <title>Yakuphan Kucukkesim Project</title>
+</head>
+<style>
+    body {
+        background-image: linear-gradient(white, lightblue);
+        }
+    .container {
+        position: relative;
+        width: auto;
+        text-align: center;
+        padding: 15px;
+        }
+    .wallpaper {
+        width: 450px;
+        height: auto;
+        border: 5px solid darkblue;
+        }
+    .name-surname {
+        position: absolute;
+        top: 5%;
+        font-style: oblique;
+        font-size: 35px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        left: 50%;
+        color: black;
+        transform: translate(-50%, -50%);
+        }
+    #used {
+        border: 4px double;
+        width: 50px;
+        height: 50px;
+        background-color: lightblue;
+        font-size: 30px;
+        }
+    .puzzle {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        }
+    #displayWord {
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: 6px double;
+        margin: auto;
+        border-radius: 50px;
+        width: 100px;
+        height: 20px;
+        background-color: lightblue;
+        color: black;
+        font-size: 20px;
+        font-weight: bold;
+        }
+    #circle {
+        position: absolute;
+        top: 76%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: 6px double;
+        border-radius: 150px;
+        width: 300px;
+        height: 300px;
+        opacity: 0.7;
+        background-color: lightblue;
+        }
+   #letter1 {
+        border: 6px double;
+        padding: 5px;
+        background-color: lightblue;
+        display: block;
+        border-radius: 70%;
+        margin: auto;
+        text-align: center;
+        font-size: 30px;
+        position: absolute;
+        top: 15%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+        }
+   #letter2 {
+        border: 6px double;
+        padding: 5px;
+        background-color: lightblue;
+        display: block;
+        border-radius: 70%;
+        margin: auto;
+        text-align: center;
+        font-size: 30px;
+        position: absolute;
+        top: 40%;
+        left: 25%;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+        }
+   #letter3 {
+        border: 6px double;
+        padding: 5px;
+        background-color: lightblue;
+        display: block;
+        border-radius: 70%;
+        margin: auto;
+        text-align: center;
+        font-size: 30px;
+        position: absolute;
+        top: 40%;
+        left: 75%;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+        }
+    #shuffle {
+        padding: 5px;
+        display: block;
+        margin: auto;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 40px;
+        height: auto;
+        cursor: pointer;
+        }
+   #letter4 {
+        border: 6px double;
+        padding: 5px;
+        background-color: lightblue;
+        display: block;
+        border-radius: 70%;
+        margin: auto;
+        text-align: center;
+        font-size: 30px;
+        position: absolute;
+        top: 70%;
+        left: 25%;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+        }
+   #letter5 {
+        border: 6px double;
+        padding: 5px;
+        background-color: lightblue;
+        display: block;
+        border-radius: 70%;
+        margin: auto;
+        text-align: center;
+        font-size: 30px;
+        position: absolute;
+        top: 70%;
+        left: 75%;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+        }
+    #tableWord tr td {
+        width: 40px;
+        height: 30px;
+        }
+    #enterBtn {
+        position: absolute;
+        display: block;
+        border: 6px double;
+        width: 70px;
+        height: 30px;
+        color: black;
+        text-align: center;
+        background-color: lightblue;
+        border-radius: 70px;
+        line-height: 30px;
+        top: 55%;
+        left: 75%;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+        font-weight: bold;
+        }
+    #hintBtn {
+        position: absolute;
+        border: 6px double;
+        width: 30px;
+        height: 30px;
+        color: black;
+        text-align: center;
+        background-color: lightblue;
+        border-radius: 120px;
+        top: 55%;
+        left: 25%;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+        }
+</style>
+</html>
+    <div class="container">
+        <img src="./images/wallpaper.png" class="wallpaper">
+        <div class="name-surname"><p>Yakuphan Küçükkesim</p></div>
+        <div class="puzzle">
+            <table>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td id="used" class="ELMA"><span>E</span></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td id="used" class="ELA EMLAK"><span>E</span></td>
+                    <td id="used" class="EMLAK"><span>M</span></td>
+                    <td id="used" class="EMLAK ELMA"><span>L</span></td>
+                    <td id="used" class="EMLAK"><span>A</span></td>
+                    <td id="used" class="EMLAK"><span>K</span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td id="used" class="ELA"><span>L</span></td>
+                    <td></td>
+                    <td id="used" class="ELMA"><span>M</span></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td id="used" class="ELA"><span>A</span></td>
+                    <td></td>
+                    <td id="used" class="ELMA ALEM"><span>A</span></td>
+                    <td id="used" class="ALEM"><span>L</span></td>
+                    <td id="used" class="ALEM"><span>E</span></td>
+                    <td id="used" class="ALEM MAL"><span>M</span></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td id="used" class="MAL"><span>A</span></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td id="used" class="MAL"><span>L</span></td>
+                </tr>
+            </table>
+        </div>
+        <div><img src="./images/hint.png" id="hintBtn"></div>
+        <div id="displayWord"></div>
+        <div id="enterBtn">ENTER</div>
+        <div id="circle">
+            <div id="letter1">E</div>
+            <div>
+                <div id="letter2">M</div>
+                <div id="letter3">L</div>
+            </div>
+            <div><img src="./images/shuffle.png" id="shuffle"></div>
+            <div>
+                <div id="letter4">A</div>
+                <div id="letter5">K</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $('#used span').hide();
+        let characters = ["E", "M", "L", "A", "K"];
+
+    $('#shuffle').click(function(){
+        function randLetters(arr){
+            let character = ["E", "M", "L", "A", "K"];
+        for(let i = 0; i <= 5; i++){
+            var k = Math.floor(Math.random() * characters.length);
+            var temp;
+            temp = arr[i];
+            arr[i] = arr[k];
+            arr[k] = temp;
+        }    
+        return arr;
+        }
+            randLetters(characters);
+
+            for(let m = 0 ; m <= 5; m++){
+                $(`#letter${m}`).text(characters[m]);
+            }
+    })
+
+    let res = "";
+    for(let k = 1; k <= 5; k++){
+    $(`#letter${k}`).click(function(){
+        res += $(`#letter${k}`).text();
+        $("#displayWord").append($(`#letter${k}`).text());
+        $(`#letter${k}`).css("background", "white");
+    })
+    }
+
+$("#enterBtn").click(function(){
+      switch(res){
+          case "ELMA":  
+                    $(".ELMA span").show();
+                    res = "";
+                    $("#displayWord").text("");
+                    $(`#letter1, #letter2, #letter3, #letter4, #letter5`).css("background","lightblue");
+                    $(`.ELMA ALEM, .ELMA`).css("background","white");
+                    $(`#displayWord`).css("background","lightblue");
+                    break;
+          case "EMLAK": 
+                    $(".EMLAK span").show(); 
+                    res = "";
+                    $("#displayWord").text("");
+                    $(`#letter1, #letter2, #letter3, #letter4, #letter5`).css("background","lightblue");
+                    $(`.EMLAK ELMA, .EMLAK`).css("background","white");
+                    $(`#displayWord`).css("background","lightblue");
+                    break;
+          case "ELA": 
+                    $(".ELA span").show(); 
+                    res = "";
+                    $("#displayWord").text("");
+                    $(`#letter1, #letter2, #letter3, #letter4, #letter5`).css("background","lightblue");
+                    $(`.ELA, .ELA EMLAK`).css("background","white");
+                    $(`#displayWord`).css("background","lightblue");
+                    break;
+          case "ALEM": 
+                    $(".ALEM span").show(); 
+                    res = "";
+                    $("#displayWord").text("");
+                    $(`#letter1, #letter2, #letter3, #letter4, #letter5`).css("background","lightblue");
+                    $(`.ALEM, .ALEM MAL`).css("background","white");
+                    $(`#displayWord`).css("background","lightblue");
+                    break;
+          case "MAL" : 
+                    $(".MAL span").show(); 
+                    res = "";
+                    $("#displayWord").text("");
+                    $(`#letter1, #letter2, #letter3, #letter4, #letter5`).css("background","lightblue"); 
+                    $(`.MAL`).css("background","white");
+                    $(`#displayWord`).css("background","lightblue");
+                    break;
+          default :  
+                    res = "";
+                    $("#displayWord").text("");
+                    $(`#letter1, #letter2, #letter3, #letter4, #letter5`).css("background","lightblue");
+                    $(`#displayWord`).css("background","red");
+                    break;
+      }
+
+      $('#hintBtn').click(function(){
+        $('#used span').show().fadeIn(500).fadeOut(500);
+      })
+  });
+    </script>
+</body>
+</html>
